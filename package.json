@@ -39,5 +39,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://SSY1203.github.io/movie-app.github.io"
+  "homepage": "https://SSY1203.github.io/movie-app.github.io",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
 }
