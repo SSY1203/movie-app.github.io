@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Movie from "../components/Movie.js";
 import "../routes/Home_module.css";
 
-interface MovieType {
+export interface MovieType {
   id:number;
   medium_cover_image:string;
   title:string;
