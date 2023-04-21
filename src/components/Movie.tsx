@@ -1,11 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../components/Movie_module.css";
 
-function Movie({ id, img, year, title, summary, genres }) {
+interface MovieProp {
+  id:number;
+  img:string;
+  year:string;
+  title:string;
+  summary:string;
+  genres:string[];
+}
+
+function Movie({ id, img, year, title, summary, genres }:MovieProp) {
   return (
-    <div id className="movie-box">
+    <div id={String(id)} className="movie-box">
       <img src={img} alt={title} />
       <div className="movie-detail">
         <h2>
@@ -26,13 +34,5 @@ function Movie({ id, img, year, title, summary, genres }) {
     </div>
   );
 }
-
-Movie.propTypes = {
-  id: PropTypes.number.isRequired,
-  img: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
 
 export default Movie;
