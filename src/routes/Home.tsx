@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Movie from "../components/Movie.js";
-import { useEffect, useState } from "react";
 import "../routes/Home_module.css";
+
+interface MovieType {
+  id:number;
+  medium_cover_image:string;
+  title:string;
+  year:string;
+  summary:string;
+  genres:string[];
+}
+
 function Home() {
-  const [loading, setLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-  const getMovies = async () => {
-    const json = await (
+  const [loading, setLoading] = useState<boolean>(true);
+  const [movies, setMovies] = useState<MovieType[]>([]);
+
+  const getMovies:()=>void = async () => {
+    const json:any = await (
       await fetch(
         "https://yts.mx/api/v2/list_movies.json?minimum_rating=7&sort_by=year"
       )
@@ -21,7 +31,7 @@ function Home() {
         <h1 className="loader">Loading...</h1>
       ) : (
         <div className="movie">
-          {movies.map((movie) => (
+          {movies.map((movie:MovieType) => (
             <Movie
               key={movie.id}
               id={movie.id}
