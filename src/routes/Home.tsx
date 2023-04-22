@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Movie from "../components/Movie.js";
+import Movie from "../components/Movie";
 import "../routes/Home_module.css";
 
 export interface MovieType {
@@ -24,7 +24,7 @@ function Home() {
     setMovies(json.data.movies);
     setLoading(false);
   };
-  useEffect(() => getMovies(), []);
+  useEffect(() => {getMovies()}, []);
   return (
     <div className="container">
       {loading ? (

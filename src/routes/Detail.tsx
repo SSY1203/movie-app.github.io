@@ -13,7 +13,6 @@ interface MovieType {
 }
 
 function Detail() {
-  const [star, setStar] = useState<boolean[]>([false, false, false, false, false]);
   const { id } = useParams();
   const [loading, setLoading] = useState<boolean>(true);
   const [movie, setMovie] = useState({} as MovieType);
@@ -26,7 +25,7 @@ function Detail() {
     setLoading(false);
   };
 
-  useEffect(() => getMovie(), []);
+  useEffect(() => {getMovie()}, []);
   return (
     <div className="detail">
       {loading ? (
